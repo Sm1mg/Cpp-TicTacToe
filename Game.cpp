@@ -23,7 +23,7 @@ class Game {
 Game::Game(){
     setup();
     loop();
-    std::cout << "\n\nGGs! Goodbye!";
+    std::cout << "\nGGs! Goodbye!\n";
 }
 // Perform game setup
 void Game::setup(){
@@ -45,22 +45,23 @@ void Game::loop(){
         unsigned char x;
         unsigned char y;
 
-        std::cout << player->name + " please select your x position (0-2)";
+        std::cout << player->name + " please select your x position (0-2)\n";
         std::cin >> x;
-        std::cout << "Now select your y position (0-2)";
+        std::cout << "Now select your y position (0-2)\n";
         std::cin >> y;
-        if (!board.place(x, y, player->team)){
-            std::cout << "Invalid input, please try again.";
+        // Adjust for these being unsigned chars
+        if (!board.place(x - 48, y - 48, player->team)){
+            std::cout << "Invalid input, please try again.\n";
             continue;
         }
         // Swap turns
         turn = !turn;
     }
-    std::cout << player->name + " wins!";
+    std::cout << player->name + " wins!\n";
 
 }
 
 void Game::print(){
-    std::cout << turn ? player_two.name + "'s turn\n" : player_one.name + "'s turn\n";
+    std::cout << (turn ? player_two.name + "'s turn\n" : player_one.name + "'s turn\n");
     std::cout << board.to_string();
 }
