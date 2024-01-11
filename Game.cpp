@@ -6,6 +6,7 @@
 class Game {
     public:
         Game();
+        void start();
     private:
         Player player_one;
         Player player_two;
@@ -22,9 +23,14 @@ class Game {
 };
 Game::Game(){
     setup();
-    loop();
+    
+}
+
+void Game::start(){
+    this->loop();
     std::cout << "\nGGs! Goodbye!\n";
 }
+
 // Perform game setup
 void Game::setup(){
     std::cout << "Player 1, please enter your name.\n";

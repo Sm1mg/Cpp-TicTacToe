@@ -1,5 +1,6 @@
 #include "Game.cpp"
 int main(){
-    Game();
+    Game game = Game();
+    game.start();
     return 0;
 }

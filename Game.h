@@ -3,6 +3,7 @@
 class Game {
     public:
         Game();
+        void start();
     private:
         Player player_one;
         Player player_two;
