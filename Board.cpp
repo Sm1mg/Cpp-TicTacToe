@@ -4,7 +4,8 @@
 #include "Piece.cpp"
 
 #define VALIDATE(a) (a >= 0 && a <3)
-#define CHECK_WIN(a, b, c) (a.team == b.team && b.team == c.team)
+#define CHECK_INITALIZED(a,b,c) (a.initialized && b.initialized && c.initialized)
+#define CHECK_WIN(a, b, c) (CHECK_INITALIZED(a,b,c)&& a.team == b.team && b.team == c.team)
 
 class Board {
     public:
