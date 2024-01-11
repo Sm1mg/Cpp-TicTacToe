@@ -1,4 +1,4 @@
-
+#include <string>
 class Piece{
     public:
         bool team;
@@ -10,4 +10,8 @@ class Piece{
             this->team = team;
             this->initialized = true;
         }
+        std::string to_string();
 };
+std::string Piece::to_string(){
+    return team ? "O" : "X";
+}
